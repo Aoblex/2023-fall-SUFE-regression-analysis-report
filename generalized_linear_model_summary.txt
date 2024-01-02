@@ -1,0 +1,432 @@
+
+Call:
+glm.nb(formula = Survival.months ~ ., data = lung.cancer, init.theta = 3.338492939, 
+    link = log)
+
+Coefficients:
+                                                                                                                                         Estimate
+(Intercept)                                                                                                                             3.0917240
+Age.recode.with.single.ages.and.90.                                                                                                    -0.0046566
+SexMale                                                                                                                                -0.0544872
+Race.recode..W..B..AI..API.Asian or Pacific Islander                                                                                    0.0895503
+Race.recode..W..B..AI..API.Black                                                                                                        0.0173653
+Race.recode..W..B..AI..API.White                                                                                                        0.0375587
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of 250,000 to 1 million pop                                                   -0.0267625
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of lt 250 thousand pop                                                        -0.0317453
+Rural.Urban.Continuum.CodeNonmetropolitan counties adjacent to a metropolitan area                                                     -0.0274338
+Rural.Urban.Continuum.CodeNonmetropolitan counties not adjacent to a metropolitan area                                                 -0.0194728
+Marital.status.at.diagnosisMarried (including common law)                                                                               0.0501905
+Marital.status.at.diagnosisSeparated                                                                                                    0.0293713
+Marital.status.at.diagnosisSingle (never married)                                                                                       0.0186073
+Marital.status.at.diagnosisUnmarried or Domestic Partner                                                                                0.0531294
+Marital.status.at.diagnosisWidowed                                                                                                      0.0294292
+Median.household.income.inflation.adj.to.2021$40,000 - $44,999                                                                         -0.0347052
+Median.household.income.inflation.adj.to.2021$45,000 - $49,999                                                                         -0.0466541
+Median.household.income.inflation.adj.to.2021$50,000 - $54,999                                                                         -0.0725271
+Median.household.income.inflation.adj.to.2021$55,000 - $59,999                                                                         -0.0491074
+Median.household.income.inflation.adj.to.2021$60,000 - $64,999                                                                         -0.0099627
+Median.household.income.inflation.adj.to.2021$65,000 - $69,999                                                                         -0.0442288
+Median.household.income.inflation.adj.to.2021$70,000 - $74,999                                                                         -0.0333398
+Median.household.income.inflation.adj.to.2021$75,000+                                                                                  -0.0182461
+Median.household.income.inflation.adj.to.2021< $35,000                                                                                 -0.1458577
+Primary.Site341                                                                                                                         0.1010063
+Primary.Site342                                                                                                                         0.1029397
+Primary.Site343                                                                                                                         0.0836059
+Primary.Site348                                                                                                                         0.1423107
+Primary.Site349                                                                                                                        -0.0059790
+Combined.Summary.Stage..2004..In situ                                                                                                   0.3426058
+Combined.Summary.Stage..2004..Localized                                                                                                 0.2094565
+Combined.Summary.Stage..2004..Regional                                                                                                  0.1011148
+Behavior.code.ICD.O.3Malignant                                                                                                          0.0641175
+Histology.recode...broad.groupings8010-8049: epithelial neoplasms, NOS                                                                 -0.0968227
+Histology.recode...broad.groupings8050-8089: squamous cell neoplasms                                                                   -0.0061722
+Histology.recode...broad.groupings8140-8389: adenomas and adenocarcinomas                                                               0.0749809
+Histology.recode...broad.groupings8430-8439: mucoepidermoid neoplasms                                                                   0.1944706
+Histology.recode...broad.groupings8440-8499: cystic, mucinous and serous neoplasms                                                      0.0111832
+Histology.recode...broad.groupings8550-8559: acinar cell neoplasms                                                                      0.0498799
+Histology.recode...broad.groupings8560-8579: complex epithelial neoplasms                                                               0.0066685
+Histology.recode...broad.groupings8930-8999: complex mixed and stromal neoplasms                                                       -0.0253044
+Grade.Clinical..2018..2                                                                                                                 0.0082502
+Grade.Clinical..2018..3                                                                                                                -0.0188490
+Grade.Clinical..2018..4                                                                                                                 0.0600438
+Grade.Clinical..2018..9                                                                                                                -0.0108941
+Grade.Pathological..2018..2                                                                                                             0.0114793
+Grade.Pathological..2018..3                                                                                                            -0.0089329
+Grade.Pathological..2018..4                                                                                                            -0.0445918
+Grade.Pathological..2018..9                                                                                                            -0.0658051
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Not documented; Primary tumor is in situ; Not assessed or unknown if assessed    -0.0532317
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, different lobe            0.0660561
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same AND different lobes -0.0293803
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same lobe                -0.0039765
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate tumor nodules, ipsilateral lung, unknown if same or different lobe      -0.0528425
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL0; No evidence; Tumor does not completely traverse the elastic layer of pleura   0.0654198
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL1 or PL2; Invasion of visceral pleura present, NOS                               0.1093225
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL3; Tumor invades into or through the parietal pleura OR chest wall               0.0218595
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..Tumor extends to pleura, NOS; not stated if visceral or parietal                   0.0677427
+Tumor.Size.Summary..2016..                                                                                                             -0.0023878
+EOD.Regional.Nodes..2018..300                                                                                                          -0.0854005
+EOD.Regional.Nodes..2018..400                                                                                                          -0.1596085
+EOD.Regional.Nodes..2018..600                                                                                                          -0.1381020
+EOD.Regional.Nodes..2018..700                                                                                                          -0.1131283
+EOD.Regional.Nodes..2018..800                                                                                                          -0.0695264
+EOD.Regional.Nodes..2018..999                                                                                                          -0.1683595
+EOD.Mets..2018..10                                                                                                                     -0.0625770
+EOD.Mets..2018..20                                                                                                                      0.0468826
+EOD.Mets..2018..30                                                                                                                     -0.1666929
+EOD.Mets..2018..50                                                                                                                     -0.3084847
+EOD.Mets..2018..70                                                                                                                     -0.2478419
+Months.from.diagnosis.to.treatment                                                                                                      0.0313063
+Radiation.recodeCombination of beam with implants or isotopes                                                                           0.0558865
+Radiation.recodeNone/Unknown                                                                                                           -0.0516985
+Radiation.recodeRadiation, NOS  method or source not specified                                                                          0.0298972
+Radiation.recodeRadioactive implants (includes brachytherapy) (1988+)                                                                   0.0739945
+Radiation.recodeRadioisotopes (1988+)                                                                                                   0.1287130
+Radiation.recodeRecommended, unknown if administered                                                                                   -0.0350804
+Radiation.recodeRefused (1988+)                                                                                                        -0.1717622
+Chemotherapy.recode..yes..no.unk.Yes                                                                                                    0.2797808
+Year.of.diagnosis2019                                                                                                                  -0.3703917
+Year.of.diagnosis2020                                                                                                                  -1.3885757
+                                                                                                                                       Std. Error
+(Intercept)                                                                                                                             0.3613035
+Age.recode.with.single.ages.and.90.                                                                                                     0.0004269
+SexMale                                                                                                                                 0.0080452
+Race.recode..W..B..AI..API.Asian or Pacific Islander                                                                                    0.0508041
+Race.recode..W..B..AI..API.Black                                                                                                        0.0511555
+Race.recode..W..B..AI..API.White                                                                                                        0.0495047
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of 250,000 to 1 million pop                                                    0.0101237
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of lt 250 thousand pop                                                         0.0180918
+Rural.Urban.Continuum.CodeNonmetropolitan counties adjacent to a metropolitan area                                                      0.0175541
+Rural.Urban.Continuum.CodeNonmetropolitan counties not adjacent to a metropolitan area                                                  0.0205444
+Marital.status.at.diagnosisMarried (including common law)                                                                               0.0118733
+Marital.status.at.diagnosisSeparated                                                                                                    0.0414415
+Marital.status.at.diagnosisSingle (never married)                                                                                       0.0143269
+Marital.status.at.diagnosisUnmarried or Domestic Partner                                                                                0.0410187
+Marital.status.at.diagnosisWidowed                                                                                                      0.0148162
+Median.household.income.inflation.adj.to.2021$40,000 - $44,999                                                                          0.1251728
+Median.household.income.inflation.adj.to.2021$45,000 - $49,999                                                                          0.0984294
+Median.household.income.inflation.adj.to.2021$50,000 - $54,999                                                                          0.0946366
+Median.household.income.inflation.adj.to.2021$55,000 - $59,999                                                                          0.0939694
+Median.household.income.inflation.adj.to.2021$60,000 - $64,999                                                                          0.0943605
+Median.household.income.inflation.adj.to.2021$65,000 - $69,999                                                                          0.0939810
+Median.household.income.inflation.adj.to.2021$70,000 - $74,999                                                                          0.0943050
+Median.household.income.inflation.adj.to.2021$75,000+                                                                                   0.0936791
+Median.household.income.inflation.adj.to.2021< $35,000                                                                                  0.1405187
+Primary.Site341                                                                                                                         0.0244424
+Primary.Site342                                                                                                                         0.0293485
+Primary.Site343                                                                                                                         0.0249379
+Primary.Site348                                                                                                                         0.0505465
+Primary.Site349                                                                                                                         0.0310580
+Combined.Summary.Stage..2004..In situ                                                                                                   0.3395753
+Combined.Summary.Stage..2004..Localized                                                                                                 0.0227954
+Combined.Summary.Stage..2004..Regional                                                                                                  0.0212428
+Behavior.code.ICD.O.3Malignant                                                                                                          0.3400534
+Histology.recode...broad.groupings8010-8049: epithelial neoplasms, NOS                                                                  0.0309144
+Histology.recode...broad.groupings8050-8089: squamous cell neoplasms                                                                    0.0306615
+Histology.recode...broad.groupings8140-8389: adenomas and adenocarcinomas                                                               0.0298726
+Histology.recode...broad.groupings8430-8439: mucoepidermoid neoplasms                                                                   0.1355560
+Histology.recode...broad.groupings8440-8499: cystic, mucinous and serous neoplasms                                                      0.0594790
+Histology.recode...broad.groupings8550-8559: acinar cell neoplasms                                                                      0.0331212
+Histology.recode...broad.groupings8560-8579: complex epithelial neoplasms                                                               0.0498948
+Histology.recode...broad.groupings8930-8999: complex mixed and stromal neoplasms                                                        0.1968113
+Grade.Clinical..2018..2                                                                                                                 0.0219485
+Grade.Clinical..2018..3                                                                                                                 0.0216244
+Grade.Clinical..2018..4                                                                                                                 0.0534330
+Grade.Clinical..2018..9                                                                                                                 0.0188380
+Grade.Pathological..2018..2                                                                                                             0.0201217
+Grade.Pathological..2018..3                                                                                                             0.0224974
+Grade.Pathological..2018..4                                                                                                             0.0833204
+Grade.Pathological..2018..9                                                                                                             0.0205757
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Not documented; Primary tumor is in situ; Not assessed or unknown if assessed     0.0201653
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, different lobe            0.0215079
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same AND different lobes  0.0252726
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same lobe                 0.0166625
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate tumor nodules, ipsilateral lung, unknown if same or different lobe       0.0188227
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL0; No evidence; Tumor does not completely traverse the elastic layer of pleura   0.0146222
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL1 or PL2; Invasion of visceral pleura present, NOS                               0.0207632
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL3; Tumor invades into or through the parietal pleura OR chest wall               0.0532484
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..Tumor extends to pleura, NOS; not stated if visceral or parietal                   0.0433468
+Tumor.Size.Summary..2016..                                                                                                              0.0001661
+EOD.Regional.Nodes..2018..300                                                                                                           0.0174622
+EOD.Regional.Nodes..2018..400                                                                                                           0.0134689
+EOD.Regional.Nodes..2018..600                                                                                                           0.0218634
+EOD.Regional.Nodes..2018..700                                                                                                           0.0186220
+EOD.Regional.Nodes..2018..800                                                                                                           0.0596725
+EOD.Regional.Nodes..2018..999                                                                                                           0.0262017
+EOD.Mets..2018..10                                                                                                                      0.0238894
+EOD.Mets..2018..20                                                                                                                      0.0448346
+EOD.Mets..2018..30                                                                                                                      0.0234267
+EOD.Mets..2018..50                                                                                                                      0.0196180
+EOD.Mets..2018..70                                                                                                                      0.0370512
+Months.from.diagnosis.to.treatment                                                                                                      0.0026981
+Radiation.recodeCombination of beam with implants or isotopes                                                                           0.2696473
+Radiation.recodeNone/Unknown                                                                                                            0.0100204
+Radiation.recodeRadiation, NOS  method or source not specified                                                                          0.1269072
+Radiation.recodeRadioactive implants (includes brachytherapy) (1988+)                                                                   0.0804369
+Radiation.recodeRadioisotopes (1988+)                                                                                                   0.3177179
+Radiation.recodeRecommended, unknown if administered                                                                                    0.0569688
+Radiation.recodeRefused (1988+)                                                                                                         0.0405490
+Chemotherapy.recode..yes..no.unk.Yes                                                                                                    0.0098447
+Year.of.diagnosis2019                                                                                                                   0.0088281
+Year.of.diagnosis2020                                                                                                                   0.0100353
+                                                                                                                                        z value
+(Intercept)                                                                                                                               8.557
+Age.recode.with.single.ages.and.90.                                                                                                     -10.909
+SexMale                                                                                                                                  -6.773
+Race.recode..W..B..AI..API.Asian or Pacific Islander                                                                                      1.763
+Race.recode..W..B..AI..API.Black                                                                                                          0.339
+Race.recode..W..B..AI..API.White                                                                                                          0.759
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of 250,000 to 1 million pop                                                     -2.644
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of lt 250 thousand pop                                                          -1.755
+Rural.Urban.Continuum.CodeNonmetropolitan counties adjacent to a metropolitan area                                                       -1.563
+Rural.Urban.Continuum.CodeNonmetropolitan counties not adjacent to a metropolitan area                                                   -0.948
+Marital.status.at.diagnosisMarried (including common law)                                                                                 4.227
+Marital.status.at.diagnosisSeparated                                                                                                      0.709
+Marital.status.at.diagnosisSingle (never married)                                                                                         1.299
+Marital.status.at.diagnosisUnmarried or Domestic Partner                                                                                  1.295
+Marital.status.at.diagnosisWidowed                                                                                                        1.986
+Median.household.income.inflation.adj.to.2021$40,000 - $44,999                                                                           -0.277
+Median.household.income.inflation.adj.to.2021$45,000 - $49,999                                                                           -0.474
+Median.household.income.inflation.adj.to.2021$50,000 - $54,999                                                                           -0.766
+Median.household.income.inflation.adj.to.2021$55,000 - $59,999                                                                           -0.523
+Median.household.income.inflation.adj.to.2021$60,000 - $64,999                                                                           -0.106
+Median.household.income.inflation.adj.to.2021$65,000 - $69,999                                                                           -0.471
+Median.household.income.inflation.adj.to.2021$70,000 - $74,999                                                                           -0.354
+Median.household.income.inflation.adj.to.2021$75,000+                                                                                    -0.195
+Median.household.income.inflation.adj.to.2021< $35,000                                                                                   -1.038
+Primary.Site341                                                                                                                           4.132
+Primary.Site342                                                                                                                           3.507
+Primary.Site343                                                                                                                           3.353
+Primary.Site348                                                                                                                           2.815
+Primary.Site349                                                                                                                          -0.193
+Combined.Summary.Stage..2004..In situ                                                                                                     1.009
+Combined.Summary.Stage..2004..Localized                                                                                                   9.189
+Combined.Summary.Stage..2004..Regional                                                                                                    4.760
+Behavior.code.ICD.O.3Malignant                                                                                                            0.189
+Histology.recode...broad.groupings8010-8049: epithelial neoplasms, NOS                                                                   -3.132
+Histology.recode...broad.groupings8050-8089: squamous cell neoplasms                                                                     -0.201
+Histology.recode...broad.groupings8140-8389: adenomas and adenocarcinomas                                                                 2.510
+Histology.recode...broad.groupings8430-8439: mucoepidermoid neoplasms                                                                     1.435
+Histology.recode...broad.groupings8440-8499: cystic, mucinous and serous neoplasms                                                        0.188
+Histology.recode...broad.groupings8550-8559: acinar cell neoplasms                                                                        1.506
+Histology.recode...broad.groupings8560-8579: complex epithelial neoplasms                                                                 0.134
+Histology.recode...broad.groupings8930-8999: complex mixed and stromal neoplasms                                                         -0.129
+Grade.Clinical..2018..2                                                                                                                   0.376
+Grade.Clinical..2018..3                                                                                                                  -0.872
+Grade.Clinical..2018..4                                                                                                                   1.124
+Grade.Clinical..2018..9                                                                                                                  -0.578
+Grade.Pathological..2018..2                                                                                                               0.570
+Grade.Pathological..2018..3                                                                                                              -0.397
+Grade.Pathological..2018..4                                                                                                              -0.535
+Grade.Pathological..2018..9                                                                                                              -3.198
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Not documented; Primary tumor is in situ; Not assessed or unknown if assessed      -2.640
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, different lobe              3.071
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same AND different lobes   -1.163
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same lobe                  -0.239
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate tumor nodules, ipsilateral lung, unknown if same or different lobe        -2.807
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL0; No evidence; Tumor does not completely traverse the elastic layer of pleura     4.474
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL1 or PL2; Invasion of visceral pleura present, NOS                                 5.265
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL3; Tumor invades into or through the parietal pleura OR chest wall                 0.411
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..Tumor extends to pleura, NOS; not stated if visceral or parietal                     1.563
+Tumor.Size.Summary..2016..                                                                                                              -14.374
+EOD.Regional.Nodes..2018..300                                                                                                            -4.891
+EOD.Regional.Nodes..2018..400                                                                                                           -11.850
+EOD.Regional.Nodes..2018..600                                                                                                            -6.317
+EOD.Regional.Nodes..2018..700                                                                                                            -6.075
+EOD.Regional.Nodes..2018..800                                                                                                            -1.165
+EOD.Regional.Nodes..2018..999                                                                                                            -6.426
+EOD.Mets..2018..10                                                                                                                       -2.619
+EOD.Mets..2018..20                                                                                                                        1.046
+EOD.Mets..2018..30                                                                                                                       -7.116
+EOD.Mets..2018..50                                                                                                                      -15.725
+EOD.Mets..2018..70                                                                                                                       -6.689
+Months.from.diagnosis.to.treatment                                                                                                       11.603
+Radiation.recodeCombination of beam with implants or isotopes                                                                             0.207
+Radiation.recodeNone/Unknown                                                                                                             -5.159
+Radiation.recodeRadiation, NOS  method or source not specified                                                                            0.236
+Radiation.recodeRadioactive implants (includes brachytherapy) (1988+)                                                                     0.920
+Radiation.recodeRadioisotopes (1988+)                                                                                                     0.405
+Radiation.recodeRecommended, unknown if administered                                                                                     -0.616
+Radiation.recodeRefused (1988+)                                                                                                          -4.236
+Chemotherapy.recode..yes..no.unk.Yes                                                                                                     28.420
+Year.of.diagnosis2019                                                                                                                   -41.956
+Year.of.diagnosis2020                                                                                                                  -138.369
+                                                                                                                                       Pr(>|z|)
+(Intercept)                                                                                                                             < 2e-16
+Age.recode.with.single.ages.and.90.                                                                                                     < 2e-16
+SexMale                                                                                                                                1.26e-11
+Race.recode..W..B..AI..API.Asian or Pacific Islander                                                                                   0.077958
+Race.recode..W..B..AI..API.Black                                                                                                       0.734263
+Race.recode..W..B..AI..API.White                                                                                                       0.448038
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of 250,000 to 1 million pop                                                   0.008204
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of lt 250 thousand pop                                                        0.079315
+Rural.Urban.Continuum.CodeNonmetropolitan counties adjacent to a metropolitan area                                                     0.118096
+Rural.Urban.Continuum.CodeNonmetropolitan counties not adjacent to a metropolitan area                                                 0.343210
+Marital.status.at.diagnosisMarried (including common law)                                                                              2.37e-05
+Marital.status.at.diagnosisSeparated                                                                                                   0.478484
+Marital.status.at.diagnosisSingle (never married)                                                                                      0.194026
+Marital.status.at.diagnosisUnmarried or Domestic Partner                                                                               0.195234
+Marital.status.at.diagnosisWidowed                                                                                                     0.047001
+Median.household.income.inflation.adj.to.2021$40,000 - $44,999                                                                         0.781582
+Median.household.income.inflation.adj.to.2021$45,000 - $49,999                                                                         0.635510
+Median.household.income.inflation.adj.to.2021$50,000 - $54,999                                                                         0.443453
+Median.household.income.inflation.adj.to.2021$55,000 - $59,999                                                                         0.601260
+Median.household.income.inflation.adj.to.2021$60,000 - $64,999                                                                         0.915914
+Median.household.income.inflation.adj.to.2021$65,000 - $69,999                                                                         0.637916
+Median.household.income.inflation.adj.to.2021$70,000 - $74,999                                                                         0.723690
+Median.household.income.inflation.adj.to.2021$75,000+                                                                                  0.845571
+Median.household.income.inflation.adj.to.2021< $35,000                                                                                 0.299272
+Primary.Site341                                                                                                                        3.59e-05
+Primary.Site342                                                                                                                        0.000452
+Primary.Site343                                                                                                                        0.000801
+Primary.Site348                                                                                                                        0.004871
+Primary.Site349                                                                                                                        0.847342
+Combined.Summary.Stage..2004..In situ                                                                                                  0.313011
+Combined.Summary.Stage..2004..Localized                                                                                                 < 2e-16
+Combined.Summary.Stage..2004..Regional                                                                                                 1.94e-06
+Behavior.code.ICD.O.3Malignant                                                                                                         0.850445
+Histology.recode...broad.groupings8010-8049: epithelial neoplasms, NOS                                                                 0.001736
+Histology.recode...broad.groupings8050-8089: squamous cell neoplasms                                                                   0.840462
+Histology.recode...broad.groupings8140-8389: adenomas and adenocarcinomas                                                              0.012072
+Histology.recode...broad.groupings8430-8439: mucoepidermoid neoplasms                                                                  0.151397
+Histology.recode...broad.groupings8440-8499: cystic, mucinous and serous neoplasms                                                     0.850861
+Histology.recode...broad.groupings8550-8559: acinar cell neoplasms                                                                     0.132072
+Histology.recode...broad.groupings8560-8579: complex epithelial neoplasms                                                              0.893678
+Histology.recode...broad.groupings8930-8999: complex mixed and stromal neoplasms                                                       0.897697
+Grade.Clinical..2018..2                                                                                                                0.707000
+Grade.Clinical..2018..3                                                                                                                0.383398
+Grade.Clinical..2018..4                                                                                                                0.261131
+Grade.Clinical..2018..9                                                                                                                0.563058
+Grade.Pathological..2018..2                                                                                                            0.568343
+Grade.Pathological..2018..3                                                                                                            0.691322
+Grade.Pathological..2018..4                                                                                                            0.592523
+Grade.Pathological..2018..9                                                                                                            0.001383
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Not documented; Primary tumor is in situ; Not assessed or unknown if assessed    0.008296
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, different lobe           0.002132
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same AND different lobes 0.245018
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same lobe                0.811380
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate tumor nodules, ipsilateral lung, unknown if same or different lobe      0.004995
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL0; No evidence; Tumor does not completely traverse the elastic layer of pleura  7.68e-06
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL1 or PL2; Invasion of visceral pleura present, NOS                              1.40e-07
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL3; Tumor invades into or through the parietal pleura OR chest wall              0.681425
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..Tumor extends to pleura, NOS; not stated if visceral or parietal                  0.118098
+Tumor.Size.Summary..2016..                                                                                                              < 2e-16
+EOD.Regional.Nodes..2018..300                                                                                                          1.01e-06
+EOD.Regional.Nodes..2018..400                                                                                                           < 2e-16
+EOD.Regional.Nodes..2018..600                                                                                                          2.67e-10
+EOD.Regional.Nodes..2018..700                                                                                                          1.24e-09
+EOD.Regional.Nodes..2018..800                                                                                                          0.243965
+EOD.Regional.Nodes..2018..999                                                                                                          1.31e-10
+EOD.Mets..2018..10                                                                                                                     0.008807
+EOD.Mets..2018..20                                                                                                                     0.295710
+EOD.Mets..2018..30                                                                                                                     1.11e-12
+EOD.Mets..2018..50                                                                                                                      < 2e-16
+EOD.Mets..2018..70                                                                                                                     2.24e-11
+Months.from.diagnosis.to.treatment                                                                                                      < 2e-16
+Radiation.recodeCombination of beam with implants or isotopes                                                                          0.835809
+Radiation.recodeNone/Unknown                                                                                                           2.48e-07
+Radiation.recodeRadiation, NOS  method or source not specified                                                                         0.813756
+Radiation.recodeRadioactive implants (includes brachytherapy) (1988+)                                                                  0.357622
+Radiation.recodeRadioisotopes (1988+)                                                                                                  0.685391
+Radiation.recodeRecommended, unknown if administered                                                                                   0.538038
+Radiation.recodeRefused (1988+)                                                                                                        2.28e-05
+Chemotherapy.recode..yes..no.unk.Yes                                                                                                    < 2e-16
+Year.of.diagnosis2019                                                                                                                   < 2e-16
+Year.of.diagnosis2020                                                                                                                   < 2e-16
+                                                                                                                                          
+(Intercept)                                                                                                                            ***
+Age.recode.with.single.ages.and.90.                                                                                                    ***
+SexMale                                                                                                                                ***
+Race.recode..W..B..AI..API.Asian or Pacific Islander                                                                                   .  
+Race.recode..W..B..AI..API.Black                                                                                                          
+Race.recode..W..B..AI..API.White                                                                                                          
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of 250,000 to 1 million pop                                                   ** 
+Rural.Urban.Continuum.CodeCounties in metropolitan areas of lt 250 thousand pop                                                        .  
+Rural.Urban.Continuum.CodeNonmetropolitan counties adjacent to a metropolitan area                                                        
+Rural.Urban.Continuum.CodeNonmetropolitan counties not adjacent to a metropolitan area                                                    
+Marital.status.at.diagnosisMarried (including common law)                                                                              ***
+Marital.status.at.diagnosisSeparated                                                                                                      
+Marital.status.at.diagnosisSingle (never married)                                                                                         
+Marital.status.at.diagnosisUnmarried or Domestic Partner                                                                                  
+Marital.status.at.diagnosisWidowed                                                                                                     *  
+Median.household.income.inflation.adj.to.2021$40,000 - $44,999                                                                            
+Median.household.income.inflation.adj.to.2021$45,000 - $49,999                                                                            
+Median.household.income.inflation.adj.to.2021$50,000 - $54,999                                                                            
+Median.household.income.inflation.adj.to.2021$55,000 - $59,999                                                                            
+Median.household.income.inflation.adj.to.2021$60,000 - $64,999                                                                            
+Median.household.income.inflation.adj.to.2021$65,000 - $69,999                                                                            
+Median.household.income.inflation.adj.to.2021$70,000 - $74,999                                                                            
+Median.household.income.inflation.adj.to.2021$75,000+                                                                                     
+Median.household.income.inflation.adj.to.2021< $35,000                                                                                    
+Primary.Site341                                                                                                                        ***
+Primary.Site342                                                                                                                        ***
+Primary.Site343                                                                                                                        ***
+Primary.Site348                                                                                                                        ** 
+Primary.Site349                                                                                                                           
+Combined.Summary.Stage..2004..In situ                                                                                                     
+Combined.Summary.Stage..2004..Localized                                                                                                ***
+Combined.Summary.Stage..2004..Regional                                                                                                 ***
+Behavior.code.ICD.O.3Malignant                                                                                                            
+Histology.recode...broad.groupings8010-8049: epithelial neoplasms, NOS                                                                 ** 
+Histology.recode...broad.groupings8050-8089: squamous cell neoplasms                                                                      
+Histology.recode...broad.groupings8140-8389: adenomas and adenocarcinomas                                                              *  
+Histology.recode...broad.groupings8430-8439: mucoepidermoid neoplasms                                                                     
+Histology.recode...broad.groupings8440-8499: cystic, mucinous and serous neoplasms                                                        
+Histology.recode...broad.groupings8550-8559: acinar cell neoplasms                                                                        
+Histology.recode...broad.groupings8560-8579: complex epithelial neoplasms                                                                 
+Histology.recode...broad.groupings8930-8999: complex mixed and stromal neoplasms                                                          
+Grade.Clinical..2018..2                                                                                                                   
+Grade.Clinical..2018..3                                                                                                                   
+Grade.Clinical..2018..4                                                                                                                   
+Grade.Clinical..2018..9                                                                                                                   
+Grade.Pathological..2018..2                                                                                                               
+Grade.Pathological..2018..3                                                                                                               
+Grade.Pathological..2018..4                                                                                                               
+Grade.Pathological..2018..9                                                                                                            ** 
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Not documented; Primary tumor is in situ; Not assessed or unknown if assessed    ** 
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, different lobe           ** 
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same AND different lobes    
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate nodules of same hist type in ipsilateral lung, same lobe                   
+Separate.Tumor.Nodules.Ipsilateral.Lung.Recode..2010..Separate tumor nodules, ipsilateral lung, unknown if same or different lobe      ** 
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL0; No evidence; Tumor does not completely traverse the elastic layer of pleura  ***
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL1 or PL2; Invasion of visceral pleura present, NOS                              ***
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..PL3; Tumor invades into or through the parietal pleura OR chest wall                 
+Visceral.and.Parietal.Pleural.Invasion.Recode..2010..Tumor extends to pleura, NOS; not stated if visceral or parietal                     
+Tumor.Size.Summary..2016..                                                                                                             ***
+EOD.Regional.Nodes..2018..300                                                                                                          ***
+EOD.Regional.Nodes..2018..400                                                                                                          ***
+EOD.Regional.Nodes..2018..600                                                                                                          ***
+EOD.Regional.Nodes..2018..700                                                                                                          ***
+EOD.Regional.Nodes..2018..800                                                                                                             
+EOD.Regional.Nodes..2018..999                                                                                                          ***
+EOD.Mets..2018..10                                                                                                                     ** 
+EOD.Mets..2018..20                                                                                                                        
+EOD.Mets..2018..30                                                                                                                     ***
+EOD.Mets..2018..50                                                                                                                     ***
+EOD.Mets..2018..70                                                                                                                     ***
+Months.from.diagnosis.to.treatment                                                                                                     ***
+Radiation.recodeCombination of beam with implants or isotopes                                                                             
+Radiation.recodeNone/Unknown                                                                                                           ***
+Radiation.recodeRadiation, NOS  method or source not specified                                                                            
+Radiation.recodeRadioactive implants (includes brachytherapy) (1988+)                                                                     
+Radiation.recodeRadioisotopes (1988+)                                                                                                     
+Radiation.recodeRecommended, unknown if administered                                                                                      
+Radiation.recodeRefused (1988+)                                                                                                        ***
+Chemotherapy.recode..yes..no.unk.Yes                                                                                                   ***
+Year.of.diagnosis2019                                                                                                                  ***
+Year.of.diagnosis2020                                                                                                                  ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Negative Binomial(3.3385) family taken to be 1)
+
+    Null deviance: 59568  on 27607  degrees of freedom
+Residual deviance: 32756  on 27527  degrees of freedom
+AIC: 179716
+
+Number of Fisher Scoring iterations: 1
+
+
+              Theta:  3.3385 
+          Std. Err.:  0.0422 
+
+ 2 x log-likelihood:  -179551.6830 
