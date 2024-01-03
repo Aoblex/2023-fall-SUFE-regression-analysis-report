@@ -1,0 +1,50 @@
+
+Call:
+lm(formula = (Survival.months^lambda - 1)/lambda ~ ., data = lung.cancer)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.89847 -0.86261 -0.02217  0.82792  3.07002 
+
+Coefficients:
+                                                       Estimate Std. Error
+(Intercept)                                           2.5072225  0.1602264
+Age.recode.with.single.ages.and.90.                  -0.0105860  0.0011838
+SexMale                                              -0.1205974  0.0229489
+Race.recode..W..B..AI..API.Asian or Pacific Islander  0.2618239  0.1311457
+Race.recode..W..B..AI..API.Black                      0.1873551  0.1312227
+Race.recode..W..B..AI..API.White                      0.1348399  0.1265471
+Primary.Site341                                       0.2030030  0.0555320
+Primary.Site342                                       0.3061723  0.0755894
+Primary.Site343                                       0.1949844  0.0574822
+Primary.Site348                                       0.2202131  0.1251787
+Primary.Site349                                      -0.0234589  0.0702544
+Combined.Summary.Stage..2004..In situ                 1.0240185  0.3213761
+Combined.Summary.Stage..2004..Localized               0.7906409  0.0362251
+Combined.Summary.Stage..2004..Regional                0.5656662  0.0307760
+Tumor.Size.Summary..2016..                           -0.0030546  0.0003576
+Months.from.diagnosis.to.treatment                    0.2245304  0.0101439
+                                                     t value Pr(>|t|)    
+(Intercept)                                           15.648  < 2e-16 ***
+Age.recode.with.single.ages.and.90.                   -8.942  < 2e-16 ***
+SexMale                                               -5.255 1.51e-07 ***
+Race.recode..W..B..AI..API.Asian or Pacific Islander   1.996 0.045915 *  
+Race.recode..W..B..AI..API.Black                       1.428 0.153393    
+Race.recode..W..B..AI..API.White                       1.066 0.286663    
+Primary.Site341                                        3.656 0.000258 ***
+Primary.Site342                                        4.050 5.15e-05 ***
+Primary.Site343                                        3.392 0.000696 ***
+Primary.Site348                                        1.759 0.078577 .  
+Primary.Site349                                       -0.334 0.738452    
+Combined.Summary.Stage..2004..In situ                  3.186 0.001445 ** 
+Combined.Summary.Stage..2004..Localized               21.826  < 2e-16 ***
+Combined.Summary.Stage..2004..Regional                18.380  < 2e-16 ***
+Tumor.Size.Summary..2016..                            -8.541  < 2e-16 ***
+Months.from.diagnosis.to.treatment                    22.135  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.11 on 9494 degrees of freedom
+Multiple R-squared:  0.1695,	Adjusted R-squared:  0.1682 
+F-statistic: 129.2 on 15 and 9494 DF,  p-value: < 2.2e-16
+
