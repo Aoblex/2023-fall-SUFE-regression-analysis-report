@@ -7,6 +7,7 @@
 \usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{multicol}
 
 % ------- 页眉页脚设置 ------- %
 \pagestyle{fancy}
@@ -178,12 +179,67 @@
                 \label{fig:chlorides}
                 \caption{氯化物分布及箱线图}
             \end{figure} 
-            
+        
+        \subsection{自变量相关性分析}
+            我们对自变量相关性进行分析，结果如图所示。可以发现，与体现酒的酸碱性的自变量相关性相对较大，需要通过后续处理消除它们的复共线性。
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../figures/covariance.png}
+                \label{fig:covariance}
+                \caption{自变量相关性热力图}
+            \end{figure}
     \section{数据建模}
-        我们首先使用线性模型全模型，通过红酒的化学成分特征，对酒品进行回归分析。
-
+        我们首先使用全模型进行建模，通过红酒的化学成分特征，对酒品进行回归分析。然后使用选模型对变量进行选择，最后使用Box-cox对quality进行变换。
+        \clearpage
         \subsection{全模型}
+            首先，我们对数据进行最小二乘回归，得到结果如下：
+            \begin{table}[ht]
+                \centering
+                \begin{tabular}{rrrrl}
+                    \hline
+                    & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+                    \hline
+                    (Intercept) & 21.9652 & 21.1946 & 1.04 & 0.3002 \\ 
+                    fixed.acidity & 0.0250 & 0.0259 & 0.96 & 0.3357 \\ 
+                    volatile.acidity & -1.0836 & 0.1211 & -8.95 & 0.0000 *** \\ 
+                    citric.acid & -0.1826 & 0.1472 & -1.24 & 0.2150 \\ 
+                    residual.sugar & 0.0163 & 0.0150 & 1.09 & 0.2765 \\ 
+                    chlorides & -1.8742 & 0.4193 & -4.47 & 0.0000 *** \\ 
+                    free.sulfur.dioxide & 0.0044 & 0.0022 & 2.01 & 0.0447 * \\ 
+                    total.sulfur.dioxide & -0.0033 & 0.0007 & -4.48 & 0.0000 ***\\ 
+                    density & -17.8812 & 21.6331 & -0.83 & 0.4086 \\ 
+                    pH & -0.4137 & 0.1916 & -2.16 & 0.0310 * \\ 
+                    sulphates & 0.9163 & 0.1143 & 8.01 & 0.0000 ***\\ 
+                    alcohol & 0.2762 & 0.0265 & 10.43 & 0.0000 ***\\ 
+                    \hline
+                    \multicolumn{5}{c}{Residual standard error: 0.648 on 1587 degrees of freedom} \\
+                    \multicolumn{5}{c}{Multiple R-squared:  0.3606,	Adjusted R-squared:  0.3561} \\
+                    \multicolumn{5}{c}{F-statistic: 81.35 on 11 and 1587 DF,  p-value: < 2.2e-16} \\
+                    \hline
+                \end{tabular}
+            \end{table}
+            
+            结果显示，在0.05的置信水平下，挥发性酸度、氯化物、总二氧化硫、硫酸盐和醇度与酒品呈正相关。
+            \clearpage
+            然后我们对模型进行回归诊断，结果如下图：
 
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../model-summary/linear-model-plot.png}
+                \label{fig:linear-model}
+                \caption{全模型诊断图}
+            \end{figure}
+
+            观察残差图，可以发现残差的分布近似一个椭圆，说明残差可能不满足方差的假设条件。
+
+            \subsubsection{模型检验}
+                
+        
+        \subsection{选模型}
+            通过AIC准则和BIC准则选取变量。
+        
+        \subsection{Box-cox变换}
+        \subsection{主成份分析}
     \section{结论及建议}
 
     \newpage
