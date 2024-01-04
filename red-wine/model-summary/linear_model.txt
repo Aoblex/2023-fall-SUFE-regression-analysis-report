@@ -1,6 +1,6 @@
 
 Call:
-lm(formula = quality ~ ., data = wine.quality)
+lm(formula = quality ~ ., data = red.wine)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
