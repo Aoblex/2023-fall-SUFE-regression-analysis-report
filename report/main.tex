@@ -355,11 +355,38 @@
                 \end{table}
 
                 使用AIC准则和BIC准则筛选出来的变量相同。
-
+        
+        \clearpage
         \subsection{Box-cox变换}
             为了改善数据的非正态性与异方差性，我们对Quality进行Box-cox变换。
-            
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../figures/boxcox.png}
+                \label{fig:boxcox}
+                \caption{box-cox变换}
+            \end{figure}
+
+            当 $\lambda = -0.74747$ 时，对数似然函数达到最大值。
+
         \subsection{主成份分析}
+            我们可以使用主成份分析法进一步降低模型多重共线性。
+            \begin{table}[ht]
+                \centering
+                \begin{tabular}{rrrrrrr}
+                    \hline
+                    & PC1 & PC2 & PC3 & PC4 & PC5 & PC6 \\ 
+                    \hline
+                    Standard deviation & 1.7721 & 1.5014 & 1.1901 & 1.0942 & 0.9574 & 0.9279 \\ 
+                    Proportion of Variance & 0.2617 & 0.1878 & 0.1180 & 0.0998 & 0.0764 & 0.0717  \\ 
+                    Cumulative Proportion & 0.2617 & 0.4496 & 0.5676 & 0.6674 & 0.7438 & 0.8155 \\ 
+                    \hline
+                \end{tabular}
+            \end{table}
+            
+            前六个主成分贡献了近 $80\%$ 的方差。
+
+        \subsection{岭回归}
+            
     \section{结论及建议}
 
     \newpage
