@@ -1,0 +1,32 @@
+% latex table generated in R 4.1.2 by xtable 1.8-4 package
+% Fri Jan  5 02:35:58 2024
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 7502.8639 & 2402.1738 & 3.12 & 0.0019 \\ 
+  fixed.acidity & 0.1007 & 0.0219 & 4.61 & 0.0000 \\ 
+  volatile.acidity & -1.0240 & 0.1460 & -7.01 & 0.0000 \\ 
+  citric.acid & 0.4537 & 0.1496 & 3.03 & 0.0025 \\ 
+  residual.sugar & 0.0656 & 0.0277 & 2.37 & 0.0181 \\ 
+  chlorides & 0.0700 & 0.1818 & 0.39 & 0.7003 \\ 
+  free.sulfur.dioxide & -0.0180 & 0.0044 & -4.07 & 0.0001 \\ 
+  total.sulfur.dioxide & -0.0007 & 0.0012 & -0.63 & 0.5299 \\ 
+  density & 0.2100 & 0.2293 & 0.92 & 0.3601 \\ 
+  pH & -1048.2938 & 3129.0379 & -0.34 & 0.7377 \\ 
+  sulphates & -2.2508 & 1.0387 & -2.17 & 0.0307 \\ 
+  alcohol & 3850.6982 & 558.0143 & 6.90 & 0.0000 \\ 
+  sulphates.square & 2.2955 & 0.6980 & 3.29 & 0.0011 \\ 
+  sulphates.cube & -0.6159 & 0.1564 & -3.94 & 0.0001 \\ 
+  sulphates.ln & 0.1692 & 0.1956 & 0.87 & 0.3874 \\ 
+  alcohol.square & -184.1330 & 26.7624 & -6.88 & 0.0000 \\ 
+  alcohol.cube & 3.8975 & 0.5686 & 6.85 & 0.0000 \\ 
+  alcohol.ln & -13362.7187 & 1932.9514 & -6.91 & 0.0000 \\ 
+  pH.square & 147.1938 & 508.6713 & 0.29 & 0.7724 \\ 
+  pH.cube & -9.0051 & 36.6723 & -0.25 & 0.8061 \\ 
+  pH.ln & 1223.3378 & 3200.9650 & 0.38 & 0.7025 \\ 
+   \hline
+\end{tabular}
+\end{table}
