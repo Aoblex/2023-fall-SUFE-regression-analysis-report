@@ -17,7 +17,7 @@
 % ------- 字体设置 ------- %
 
 % ------- 标题页 ------- % 
-\title{酒的质量分析报告}
+\title{红酒质量分析报告}
 \author{回归分析小组}
 \date{\today}
 
@@ -41,7 +41,7 @@
         随着酒类产品在市场上的广泛受欢迎，对于酒的质量和特征的深入了解变得至关重要。为了更好地了解酒的品质，我们进行了一项回归分析，重点关注了酒的酸度，二氧化硫（$SO_2$）含量等特征。这些特征在很大程度上影响了酒的口感、风味和保存能力。 
 
     \section{数据说明}
-        我们通过 \href{https://archive.ics.uci.edu/dataset/186/wine+quality}{UC Irvine}仓库下载了红酒以及白酒数据，数据集中的特征包含酒的各类化学成分指标以及酒的品质评价。其中，成分指标，如$pH$值、$SO_2$含量、残糖量等通过物理化学检测得出；酒的品质由专业品酒师做出评价。（每个样本由三个品酒师做出评价，每个人的评分为0（差）到10（好）的一个整数，最终评价取三人的中位数）。特征说明如 \ref{tab:features} 所示。
+        我们通过 \href{https://archive.ics.uci.edu/dataset/186/wine+quality}{UC Irvine}仓库下载了红酒数据，数据集中的特征包含酒的各类化学成分指标以及酒的品质评价。其中，成分指标，如$pH$值、$SO_2$含量、残糖量等通过物理化学检测得出；酒的品质由专业品酒师做出评价。（每个样本由三个品酒师做出评价，每个人的评分为$0$（差）到$10$（好）的一个整数，最终评价取三人的中位数）。红酒共$1599$条数据，其中不含缺失值，共记录了$12$个特征，特征说明如 \ref{tab:features} 所示。
 
         \begin{table}[htbp]
             \centering
@@ -69,7 +69,20 @@
         \end{table}
 
     \section{描述性统计}
-
+        对数据的初步描述如表 \ref{tab:description} 所示，包含平均值、最小值、最大值、中位数。
+        \begin{table}[htbp]
+            \centering
+            \caption{数据描述}
+            \vspace{5pt}
+            \begin{tabular}{ccccc}
+                \hline
+                变量名 & 平均值 & 最小值 & 最大值 & 中位数 \\
+                \hline
+                fixed.acidity & 8.32 & 4.60 & 15.90 & 7.90 \\
+                \hline
+            \end{tabular}
+            \label{tab:description}
+        \end{table}
     \section{数据建模}
 
     \section{结论及建议}

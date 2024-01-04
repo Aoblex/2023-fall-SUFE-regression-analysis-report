@@ -1,0 +1,189 @@
+---
+title: "red_wine_regression"
+author: "2021111690_闵逸洲"
+date: "2024-01-03"
+output: html_document
+---
+
+## 读取数据
+
+```{r}
+red.wine=data.frame(read.csv("./datasets/winequality-red.csv",header=TRUE))
+```
+
+##描述性统计
+
+
+```{r}
+frequency_table <- table(red.wine$quality)
+
+# 绘制柱形图
+barplot(frequency_table, main = "Frequency of Integer Values", xlab = "Integer Values", ylab = "Frequency")
+```
+
+
+
+
+```{r}
+num_categories <- 5  # 设定分成的类别数量
+feature_categories <- cut(red.wine$fixed.acidity, breaks = num_categories)# 将特征列分成 num_categories 个区间
+data <- data.frame(Feature = red.wine$fixed.acidity, Label = red.wine$quality, Category = feature_categories)
+library(ggplot2)
+ggplot(data, aes(x = Category, y = Label, fill = Category)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Labels by Feature Categories", x = "Feature Categories", y = "Labels") +
+  theme_minimal()
+
+```
+
+
+
+```{r}
+num_categories <- 4 # 设定分成的类别数量
+feature_categories <- cut(red.wine$pH, breaks = num_categories)# 将特征列分成 num_categories 个区间
+data <- data.frame(Feature = red.wine$pH, Label = red.wine$quality, Category = feature_categories)
+library(ggplot2)
+ggplot(data, aes(x = Category, y = Label, fill = Category)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Labels by Feature Categories", x = "Feature Categories", y = "Labels") +
+  theme_minimal()
+```
+
+
+
+## 全模型线性回归
+
+```{r}
+linear.model=lm(red.wine$quality~., data=red.wine)
+summary(linear.model)
+par(mfrow=c(2,2))
+plot(linear.model)
+cooksd <- cooks.distance(linear.model)
+top_outliers <- order(cooksd, decreasing = TRUE)[1:8]
+
+# 绘制 Cook's 距离图
+plot(cooksd, pch = 19, cex = 1, main = "Cook's Distance Plot", ylab = "Cook's Distance", xlab = "Observation")
+abline(h = 4/length(cooksd), col = "red", lty = 2)
+
+# 在图中标记异常值的观测编号
+text(top_outliers, cooksd[top_outliers], labels = top_outliers, pos = 4, col = "blue")  # 将异常值的观测编号标记在图中
+```
+
+##创建二次变量
+```{r}
+# 创建空的数据框，用于存储交叉项
+red.wine_interact <- data.frame(matrix(NA, nrow = nrow(red.wine), ncol = 0))
+
+
+# 使用循环对所有特征进行两两交叉项的创建
+for (i in 1:(ncol(red.wine) - 1)) {
+  for (j in i:(ncol(red.wine)-1)) {
+    colname <- paste(names(red.wine)[i], names(red.wine)[j], sep = "_x_")  # 构建交叉项列名
+    red.wine_interact[colname] <- red.wine[, i] * red.wine[, j]  # 计算交叉项并添加到数据框中
+  }
+}
+
+red.wine_combined <- cbind(red.wine, red.wine_interact)
+
+##二次型变量的回归分析
+linear.model=lm(quality~.,data=red.wine_combined)
+summary(linear.model)
+plot(linear.model)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+##glm
+```{r}
+red.wine$quality=red.wine$quality-mean(red.wine$quality)
+glm.model=glm(red.wine$quality~volatile.acidity+chlorides+total.sulfur.dioxide+sulphates+alcohol,family = gaussian,data=red.wine)
+summary(glm.model)
+plot(glm.model)
+```
+
+
+
+
+##检验
+```{r}
+library(car)
+library(lmtest)
+ncvTest(linear.model)    ##检验异方差
+dwtest(linear.model)     ##检验自相关性
+vif(linear.model)        ##检验多重共线性
+```
+
+
+##Boxcox变换
+```{r}
+library(MASS)
+bc_results <- boxcox(red.wine$quality ~ 1,plotit = TRUE)
+print(bc_results)  # 打印出lambda值 
+best_lambda <- bc_results$x[which.max(bc_results$y)]  # 找到最大对数似然估计值对应的 lambda 值
+print(best_lambda)
+```
+
+
+
+##Boxcox变换后
+```{r}
+red.wine$quality=(red.wine$quality^best_lambda-1)/best_lambda
+linear.model=lm(red.wine$quality~., data=red.wine)
+summary(linear.model)
+par(mfrow=c(2,2))
+plot(linear.model)
+cooksd <- cooks.distance(linear.model)
+top_outliers <- order(cooksd, decreasing = TRUE)[1:8]
+
+# 绘制 Cook's 距离图
+plot(cooksd, pch = 19, cex = 1, main = "Cook's Distance Plot", ylab = "Cook's Distance", xlab = "Observation")
+abline(h = 4/length(cooksd), col = "red", lty = 2)
+
+# 在图中标记异常值的观测编号
+text(top_outliers, cooksd[top_outliers], labels = top_outliers, pos = 4, col = "blue")  # 将异常值的观测编号标记在图中
+```
+
+##Boxcox变换后的检验
+```{r}
+ncvTest(linear.model)    ##检验异方差
+dwtest(linear.model)     ##检验自相关性
+vif(linear.model)        ##检验多重共线性
+```
+##利用AIC和BIC选取变量
+```{r}
+stepwise_model_AIC <- step(linear.model, direction = "both", trace = 0, criterion = "AIC")  
+summary(stepwise_model_AIC)       # 使用 AIC 准则
+stepwise_model_BIC <- step(linear.model, direction = "both", trace = 0, criterion = "BIC")  
+summary(stepwise_model_BIC)       # 使用 BIC 准则
+```
+
+
+
+
+```{r}
+linear.model=lm(red.wine$quality~volatile.acidity  + 
+    chlorides  + total.sulfur.dioxide + 
+    pH + sulphates + alcohol, data=red.wine)
+summary(linear.model)
+plot(linear.model)
+```
+
+
+
+
+
+
+
+
+
+
