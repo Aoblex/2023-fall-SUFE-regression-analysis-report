@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{amsmath}
 
 % ------- 页眉页脚设置 ------- %
 \pagestyle{fancy}
@@ -15,7 +16,7 @@
 \renewcommand{\footrulewidth}{0pt}
 
 
-% ------- 字体设置 ------- %
+% ------- 图片编号 ------- %
 
 % ------- 标题页 ------- % 
 \title{红酒质量分析报告}
@@ -128,21 +129,56 @@
             \end{tabular}
             \label{tab:description9-12}
             \end{table}
-
+        
+        \clearpage
         \subsection{因变量描述}
             首先通过直方图观察酒品分布情况，可以发现，数据主要集中在$5, 6$。 
             \begin{figure}[htbp]
                 \centering
-                \includegraphics[width=0.5\textwidth]{../red-wine/figures/quality-frequency}
+                \includegraphics[width=0.8\textwidth]{../figures/quality-frequency.png}
                 \label{fig:quality}
                 \caption{酒品数据分布}
             \end{figure}
 
         \subsection{自变量描述}
             我们通过自变量的分布图和自变量与酒品的箱线图对其进行描述。下面展示部分具有代表性的数据。
+            \clearpage
+            \subsubsection{硫酸盐（Sulphates）}
+                硫酸盐的分布图和关于酒品的箱线图如图所示。
+                \begin{figure}[htbp]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{../figures/sulphates-plot.png}
+                    \label{fig:sulphates}
+                    \caption{硫酸盐分布及箱线图}
+                \end{figure}
 
-            \subsubsection{}
+            \subsubsection{酒精（Alcohol）}
+                酒精含量的分布图和关于酒品的箱线图如图所示。
+                \begin{figure}[htbp]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{../figures/alcohol-plot.png}
+                    \label{fig:alcohol}
+                    \caption{酒精分布及箱线图}
+                \end{figure}
+            
+            \subsubsection{总二氧化硫（Total Sulfur Dioxide ）}
+                总二氧化硫含量的分布图和关于酒品的箱线图如图所示。
+                \begin{figure}[htbp]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{../figures/total.sulfur.dioxide-plot.png}
+                    \label{fig:total.sulfur.dioxide}
+                    \caption{总二氧化硫分布及箱线图}
+                \end{figure}   
 
+            \subsubsection{氯化物（Chlorides）}
+            氯化物含量的分布图和关于酒品的箱线图如图所示。
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../figures/chlorides-plot.png}
+                \label{fig:chlorides}
+                \caption{氯化物分布及箱线图}
+            \end{figure} 
+            
     \section{数据建模}
         我们首先使用线性模型全模型，通过红酒的化学成分特征，对酒品进行回归分析。
 
