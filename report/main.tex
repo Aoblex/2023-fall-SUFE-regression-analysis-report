@@ -44,7 +44,7 @@
         随着酒类产品在市场上的广泛受欢迎，对于酒的质量和特征的深入了解变得至关重要。为了更好地了解酒的品质，我们进行了一项回归分析，重点关注了酒的酸度，二氧化硫（$SO_2$）含量等特征。这些特征在很大程度上影响了酒的口感、风味和保存能力。 
 
     \section{数据说明}
-        我们通过 \href{https://archive.ics.uci.edu/dataset/186/wine+quality}{UC Irvine}仓库下载了红酒数据，数据集中的特征包含酒的各类化学成分指标以及酒的品质评价。其中，成分指标，如$pH$值、$SO_2$含量、残糖量等通过物理化学检测得出；酒的品质由专业品酒师做出评价。（每个样本由三个品酒师做出评价，每个人的评分为$0$（差）到$10$（好）的一个整数，最终评价取三人的中位数）。红酒共$1599$条数据，其中不含缺失值，共记录了$12$个特征，特征说明如 \ref{tab:features} 所示。
+        我们通过 \href{https://archive.ics.uci.edu/dataset/186/wine+quality}{UC Irvine}仓库下载了红酒数据，数据集中的特征包含酒的各类化学成分指标以及酒的品质评价。其中，成分指标，如$pH$值、$SO_2$含量、残糖量等通过物理化学检测得出；酒的品质由专业品酒师做出评价。（每个样本由三个品酒师做出评价，每个人的评分为$0$（差）到$10$（好）的一个整数，最终评价取三人的中位数）。红酒共$599$条数据，其中不含缺失值，共记录了$12$个特征，特征说明如 \ref{tab:features} 所示。
 
         \begin{table}[htbp]
             \centering
@@ -78,17 +78,17 @@
             \centering
             \caption{数据描述1-4}
             \vspace{5pt}
-            \begin{tabular}{lllll}
+            \begin{tabular}{llll}
                 \hline
                 fixed.acidity & volatile.acidity &  citric.acid & residual.sugar \\ 
                 \hline
-                Min.   : 4.60   & Min.   :0.1200   & Min.   :0.000   & Min.   : 0.900   \\ 
-                1st Qu.: 7.10   & 1st Qu.:0.3900   & 1st Qu.:0.090   & 1st Qu.: 1.900   \\ 
-                Median : 7.90   & Median :0.5200   & Median :0.260   & Median : 2.200   \\ 
-                Mean   : 8.32   & Mean   :0.5278   & Mean   :0.271   & Mean   : 2.539   \\ 
-                3rd Qu.: 9.20   & 3rd Qu.:0.6400   & 3rd Qu.:0.420   & 3rd Qu.: 2.600   \\ 
-                Max.   :15.90   & Max.   :1.5800   & Max.   :1.000   & Max.   :15.500   \\ 
-               \hline
+                Min.   : 6.557   & Min.   :0.0052   & Min.   :-0.1331   & Min.   :1.223   \\ 
+                1st Qu.: 7.857   & 1st Qu.:0.3278   & 1st Qu.: 0.3126   & 1st Qu.:1.784   \\ 
+                Median : 8.622   & Median :0.4581   & Median : 0.4563   & Median :1.977   \\ 
+                Mean   : 8.859   & Mean   :0.4808   & Mean   : 0.4535   & Mean   :2.407   \\ 
+                3rd Qu.: 9.309   & 3rd Qu.:0.6300   & 3rd Qu.: 0.5803   & 3rd Qu.:2.457   \\ 
+                Max.   :12.642   & Max.   :1.0396   & Max.   : 1.1742   & Max.   :6.780   \\ 
+                \hline
             \end{tabular}
             \label{tab:description1-4}
         \end{table}
@@ -97,16 +97,16 @@
             \centering
             \caption{数据描述5-8}
             \vspace{5pt}
-            \begin{tabular}{lllll}
+            \begin{tabular}{llll}
                 \hline
                 chlorides & free.sulfur.dioxide & total.sulfur.dioxide &    density \\ 
                 \hline
-                Min.   :0.01200   & Min.   : 1.00   & Min.   :  6.00   & Min.   :0.9901   \\ 
-                1st Qu.:0.07000   & 1st Qu.: 7.00   & 1st Qu.: 22.00   & 1st Qu.:0.9956   \\ 
-                Median :0.07900   & Median :14.00   & Median : 38.00   & Median :0.9968   \\ 
-                Mean   :0.08747   & Mean   :15.87   & Mean   : 46.47   & Mean   :0.9967   \\ 
-                3rd Qu.:0.09000   & 3rd Qu.:21.00   & 3rd Qu.: 62.00   & 3rd Qu.:0.9978   \\ 
-                Max.   :0.61100   & Max.   :72.00   & Max.   :289.00   & Max.   :1.0037   \\ 
+                Min.   :-0.17986   & Min.   : 2.872   & Min.   :  9.874   & Min.   :0.7226   \\ 
+                1st Qu.: 0.07193   & 1st Qu.: 8.041   & 1st Qu.: 24.112   & 1st Qu.:0.9328   \\ 
+                Median : 0.16598   & Median :15.930   & Median : 56.041   & Median :0.9960   \\ 
+                Mean   : 0.21012   & Mean   :16.475   & Mean   : 63.791   & Mean   :1.0014   \\ 
+                3rd Qu.: 0.35014   & 3rd Qu.:22.089   & 3rd Qu.:102.992   & 3rd Qu.:1.0719   \\ 
+                Max.   : 0.76331   & Max.   :39.160   & Max.   :151.197   & Max.   :1.2901   \\ 
                 \hline
             \end{tabular}
             \label{tab:description5-8}
@@ -116,24 +116,24 @@
             \centering
             \caption{数据描述9-12}
             \vspace{5pt}
-            \begin{tabular}{lllll}
+            \begin{tabular}{llll}
                 \hline
                 pH &   sulphates &    alcohol &    quality \\ 
                 \hline
-                Min.   :2.740   & Min.   :0.3300   & Min.   : 8.40   & Min.   :3.000   \\ 
-                1st Qu.:3.210   & 1st Qu.:0.5500   & 1st Qu.: 9.50   & 1st Qu.:5.000   \\ 
-                Median :3.310   & Median :0.6200   & Median :10.20   & Median :6.000   \\ 
-                Mean   :3.311   & Mean   :0.6581   & Mean   :10.42   & Mean   :5.636   \\ 
-                3rd Qu.:3.400   & 3rd Qu.:0.7300   & 3rd Qu.:11.10   & 3rd Qu.:6.000   \\ 
-                Max.   :4.010   & Max.   :2.0000   & Max.   :14.90   & Max.   :8.000   \\ 
+                Min.   :2.611   & Min.   :-0.09304   & Min.   : 8.768   & Min.   :4.000   \\ 
+                1st Qu.:3.017   & 1st Qu.: 0.34213   & 1st Qu.: 9.273   & 1st Qu.:5.000   \\ 
+                Median :3.134   & Median : 0.50100   & Median : 9.498   & Median :5.000   \\ 
+                Mean   :3.129   & Mean   : 0.64124   & Mean   : 9.888   & Mean   :5.581   \\ 
+                3rd Qu.:3.256   & 3rd Qu.: 0.72854   & 3rd Qu.:10.346   & 3rd Qu.:6.000   \\ 
+                Max.   :3.582   & Max.   : 2.84062   & Max.   :12.465   & Max.   :8.000   \\ 
                 \hline
             \end{tabular}
             \label{tab:description9-12}
-            \end{table}
+        \end{table}
         
         \clearpage
         \subsection{因变量描述}
-            首先通过直方图观察酒品分布情况，可以发现，数据主要集中在$5, 6$。 
+            首先通过直方图观察酒品分布情况，可以发现，数据主要集中在$5, 6, 7$。 
             \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.8\textwidth]{../figures/quality-frequency.png}
@@ -142,43 +142,43 @@
             \end{figure}
 
         \subsection{自变量描述}
-            我们通过自变量的分布图和自变量与酒品的箱线图对其进行描述。下面展示部分具有代表性的数据。
+            我们通过自变量与酒品的箱线图对其进行描述。下面展示部分具有代表性的数据。
             \clearpage
-            \subsubsection{硫酸盐（Sulphates）}
-                硫酸盐的分布图和关于酒品的箱线图如图所示。
+            \subsubsection{固定酸度（Fixed Acidity）}
+                固定酸度关于酒品的箱线图如图所示。
                 \begin{figure}[htbp]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{../figures/sulphates-plot.png}
-                    \label{fig:sulphates}
-                    \caption{硫酸盐分布及箱线图}
+                    \includegraphics[width=0.8\textwidth]{../figures/fixed.acidity-plot.png}
+                    \label{fig:fixed-acidity}
+                    \caption{固定酸度箱线图}
                 \end{figure}
 
-            \subsubsection{酒精（Alcohol）}
-                酒精含量的分布图和关于酒品的箱线图如图所示。
+            \subsubsection{挥发性酸度（Volatile Acidity）}
+                挥发性酸度关于酒品的箱线图如图所示。
+                \begin{figure}[htbp]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{../figures/volatile.acidity-plot.png}
+                    \label{fig:volatile-acidity}
+                    \caption{挥发性酸度分布箱线图}
+                \end{figure}
+            
+            \subsubsection{游离二氧化硫（Free Sulfur Dioxide）}
+                游离二氧化硫含量关于酒品的箱线图如图所示。
+                \begin{figure}[htbp]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{../figures/free.sulfur.dioxide-plot.png}
+                    \label{fig:free.sulfur.dioxide}
+                    \caption{游离二氧化硫箱线图}
+                \end{figure}   
+
+            \subsubsection{醇度（Alcohol）}
+                酒精含量关于酒品的箱线图如图所示。
                 \begin{figure}[htbp]
                     \centering
                     \includegraphics[width=0.8\textwidth]{../figures/alcohol-plot.png}
                     \label{fig:alcohol}
-                    \caption{酒精分布及箱线图}
-                \end{figure}
-            
-            \subsubsection{总二氧化硫（Total Sulfur Dioxide ）}
-                总二氧化硫含量的分布图和关于酒品的箱线图如图所示。
-                \begin{figure}[htbp]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{../figures/total.sulfur.dioxide-plot.png}
-                    \label{fig:total.sulfur.dioxide}
-                    \caption{总二氧化硫分布及箱线图}
-                \end{figure}   
-
-            \subsubsection{氯化物（Chlorides）}
-            氯化物含量的分布图和关于酒品的箱线图如图所示。
-            \begin{figure}[htbp]
-                \centering
-                \includegraphics[width=0.8\textwidth]{../figures/chlorides-plot.png}
-                \label{fig:chlorides}
-                \caption{氯化物分布及箱线图}
-            \end{figure} 
+                    \caption{醇度箱线图}
+                \end{figure} 
         
         \subsection{自变量相关性分析}
             我们对自变量相关性进行分析，结果如图所示。可以发现，与体现酒的酸碱性的自变量相关性相对较大，需要通过后续处理消除它们的复共线性。
@@ -192,34 +192,35 @@
         我们首先使用全模型进行建模，通过红酒的化学成分特征，对酒品进行回归分析。然后使用选模型对变量进行选择，最后使用Box-cox对quality进行变换。
         \clearpage
         \subsection{全模型}
-            首先，我们对数据进行最小二乘回归，得到结果如下：
-            \begin{table}[ht]
+            首先，我们对数据进行全模型最小二乘回归，得到结果如下：
+            \begin{table}[htbp]
                 \centering
                 \begin{tabular}{rrrrl}
                     \hline
                     & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
                     \hline
-                    (Intercept) & 21.9652 & 21.1946 & 1.04 & 0.3002 \\ 
-                    fixed.acidity & 0.0250 & 0.0259 & 0.96 & 0.3357 \\ 
-                    volatile.acidity & -1.0836 & 0.1211 & -8.95 & 0.0000 *** \\ 
-                    citric.acid & -0.1826 & 0.1472 & -1.24 & 0.2150 \\ 
-                    residual.sugar & 0.0163 & 0.0150 & 1.09 & 0.2765 \\ 
-                    chlorides & -1.8742 & 0.4193 & -4.47 & 0.0000 *** \\ 
-                    free.sulfur.dioxide & 0.0044 & 0.0022 & 2.01 & 0.0447 * \\ 
-                    total.sulfur.dioxide & -0.0033 & 0.0007 & -4.48 & 0.0000 ***\\ 
-                    density & -17.8812 & 21.6331 & -0.83 & 0.4086 \\ 
-                    pH & -0.4137 & 0.1916 & -2.16 & 0.0310 * \\ 
-                    sulphates & 0.9163 & 0.1143 & 8.01 & 0.0000 ***\\ 
-                    alcohol & 0.2762 & 0.0265 & 10.43 & 0.0000 ***\\ 
+                    (Intercept) & 1.5577 & 0.8651 & 1.80 & 0.0723 . \\ 
+                    fixed.acidity & 0.0771 & 0.0220 & 3.51 & 0.0005 *** \\ 
+                    volatile.acidity & -1.0448 & 0.1477 & -7.07 & 0.0000 *** \\ 
+                    citric.acid & 0.0886 & 0.1538 & 0.58 & 0.5648 \\ 
+                    residual.sugar & 0.0100 & 0.0277 & 0.36 & 0.7174 \\ 
+                    chlorides & -0.2167 & 0.1891 & -1.15 & 0.2523 \\ 
+                    free.sulfur.dioxide & -0.0181 & 0.0044 & -4.10 & 0.0000 *** \\ 
+                    total.sulfur.dioxide & -0.0008 & 0.0012 & -0.65 & 0.5157 \\ 
+                    density & 0.1462 & 0.2437 & 0.60 & 0.5488 \\ 
+                    pH & -0.2349 & 0.2072 & -1.13 & 0.2574 \\ 
+                    sulphates & -0.0626 & 0.0550 & -1.14 & 0.2556 \\ 
+                    alcohol & 0.4856 & 0.0376 & 12.91 & 0.0000 *** \\ 
                     \hline
-                    \multicolumn{5}{c}{Residual standard error: 0.648 on 1587 degrees of freedom} \\
-                    \multicolumn{5}{c}{Multiple R-squared:  0.3606,	Adjusted R-squared:  0.3561} \\
-                    \multicolumn{5}{c}{F-statistic: 81.35 on 11 and 1587 DF,  p-value: < 2.2e-16} \\
+                    \multicolumn{5}{c}{Residual standard error: 0.5762 on 547 degrees of freedom} \\
+                    \multicolumn{5}{c}{Multiple R-squared:  0.5656,	Adjusted R-squared:  0.5569} \\
+                    \multicolumn{5}{c}{F-statistic: 64.76 on 11 and 547 DF,  p-value: < 2.2e-16} \\
                     \hline
                 \end{tabular}
+                \label{tab:linear-model}
             \end{table}
             
-            结果显示，在0.05的置信水平下，挥发性酸度、氯化物、总二氧化硫、硫酸盐和醇度与酒品呈正相关。
+            结果显示，在0.05的置信水平下，固定酸度、挥发性酸度、游离二氧化氮和醇度与酒品呈正相关。
             \clearpage
             然后我们对模型进行回归诊断，结果如下图：
 
@@ -230,15 +231,133 @@
                 \caption{全模型诊断图}
             \end{figure}
 
-            观察残差图，可以发现残差的分布近似一个椭圆，说明残差可能不满足方差的假设条件。
+            在左上角残差图中，有一部分离群点；
+            在右上角Q-Q图中，有一部分数据发生了偏离；
+            因此有必要对数据进一步处理。
 
-            \subsubsection{模型检验}
+            在进一步处理之前，我们先对模型进行一系列检验。
+            \clearpage
+            \subsubsection{异常值检验}
+                利用Cook距离检验数据集中的异常值点，结果如下：
+                \begin{figure}[htbp]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{../figures/cook.png}
+                    \label{fig:cook}
+                    \caption{Cook距离}
+                \end{figure}
+            
+                可以看到，所有数据点的Cook距离都接近0。
+
+            \subsubsection{异方差检验}
+                利用ncvTest检验模型异方差性，结果如下：
+                \begin{table}[htbp]
+                    \centering
+                    \caption{异方差检验}
+                    \vspace{5pt}
+                    \begin{tabular}{ccc}
+                        \hline
+                        Chisquare & Df & p \\
+                        \hline
+                        0.1033325 & 1 & 0.74787 \\
+                        \hline
+                    \end{tabular}
+                \end{table}
                 
-        
+                检验得到p值为0.74787，因此接受原假设，认为模型不具有异方差性。
+               
+            \subsubsection{自相关性检验}
+                利用dwtest对误差自相关性进行检验，结果如下：
+                \begin{table}[htbp]
+                    \centering
+                    \caption{自相关性检验}
+                    \vspace{5pt}
+                    \begin{tabular}{cc}
+                        \hline
+                        DW & p \\
+                        \hline
+                        2.0775 & 0.8176 \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+                
+                检验得到p值为0.8176，因此接受原假设，认为模型不具有自相关性。
+
+            \subsubsection{多重共线性检验}
+                利用VIF对自变量共线性进行检验，结果如下：
+                \begin{table}[ht]
+                    \centering
+                    \caption{多重共线性}
+                    \vspace{5pt}
+                    \begin{tabular}{rr}
+                        \hline
+                        & VIF \\ 
+                        \hline
+                        fixed.acidity & 1.50 \\ 
+                        volatile.acidity & 1.45 \\ 
+                        citric.acid & 1.62 \\ 
+                        residual.sugar & 1.75 \\ 
+                        chlorides & 2.08 \\ 
+                        free.sulfur.dioxide & 2.94 \\ 
+                        total.sulfur.dioxide & 4.12 \\ 
+                        density & 1.04 \\ 
+                        pH & 2.08 \\ 
+                        sulphates & 1.49 \\ 
+                        alcohol & 1.62 \\ 
+                        \hline
+                    \end{tabular}
+                \end{table}
+
+                若VIF小于1，表示自变量不存在多重共线性的问题；若VIF在1到5之间，表示存在轻微的多重共线性问题；若VIF大于5，表示存在较强的多重共线性。可以看到，总二氧化硫可能与其他变量的相关性相对较强。
         \subsection{选模型}
-            通过AIC准则和BIC准则选取变量。
-        
+            为了解决多重共线性的问题，我们通过AIC准则和BIC准则选取变量。
+            \subsubsection{AIC准则}
+                使用AIC准则选择变量，结果如下：
+
+                \begin{table}[ht]
+                    \centering
+                    \begin{tabular}{rrrrl}
+                        \hline
+                        & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+                        \hline
+                        (Intercept) & 0.6495 & 0.3696 & 1.76 & 0.0794 . \\ 
+                        fixed.acidity & 0.0952 & 0.0190 & 5.01 & 7.46e-07 *** \\ 
+                        volatile.acidity & -1.0721 & 0.1330 & -8.06 & 4.78e-15 *** \\ 
+                        free.sulfur.dioxide & -0.0201 & 0.0026 & -7.66 & 8.48e-14 *** \\ 
+                        alcohol & 0.4991 & 0.0329 & 15.16 & < 2e-16 *** \\ 
+                        \hline
+                        \multicolumn{5}{c}{Residual standard error: 0.5743 on 554 degrees of freedom} \\
+                        \multicolumn{5}{c}{Multiple R-squared:  0.563,	Adjusted R-squared:  0.5598 } \\
+                        \multicolumn{5}{c}{F-statistic: 178.4 on 4 and 554 DF,  p-value: < 2.2e-16} \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+
+            \subsubsection{BIC准则}
+                使用BIC准则选择变量，结果如下：
+
+                \begin{table}[ht]
+                    \centering
+                    \begin{tabular}{rrrrl}
+                        \hline
+                        & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+                        \hline
+                        (Intercept) & 0.6495 & 0.3696 & 1.76 & 0.0794 . \\ 
+                        fixed.acidity & 0.0952 & 0.0190 & 5.01 & 7.46e-07 *** \\ 
+                        volatile.acidity & -1.0721 & 0.1330 & -8.06 & 4.78e-15 *** \\ 
+                        free.sulfur.dioxide & -0.0201 & 0.0026 & -7.66 & 8.48e-14 *** \\ 
+                        alcohol & 0.4991 & 0.0329 & 15.16 & < 2e-16 *** \\ 
+                        \hline
+                        \multicolumn{5}{c}{Residual standard error: 0.5743 on 554 degrees of freedom} \\
+                        \multicolumn{5}{c}{Multiple R-squared:  0.563,	Adjusted R-squared:  0.5598 } \\
+                        \multicolumn{5}{c}{F-statistic: 178.4 on 4 and 554 DF,  p-value: < 2.2e-16} \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+
+                使用AIC准则和BIC准则筛选出来的变量相同。
+
         \subsection{Box-cox变换}
+            
         \subsection{主成份分析}
     \section{结论及建议}
 

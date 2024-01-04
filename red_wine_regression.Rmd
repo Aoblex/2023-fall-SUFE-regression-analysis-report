@@ -8,45 +8,132 @@ output: html_document
 ## 读取数据
 
 ```{r}
-red.wine=data.frame(read.csv("./datasets/winequality-red.csv",header=TRUE))
+red.wine=data.frame(read.csv("D:/学习材料/R文件/R project/red_wine_quality.csv",header=TRUE))
+
 ```
 
 ##描述性统计
+```{r}
+# scatter pair plot
+library(GGally)
 
+ggpairs(red.wine, progress = FALSE)
+```
 
 ```{r}
-frequency_table <- table(red.wine$quality)
+# heatmap
+cor_matrix <- cor(red.wine)
+cor_data <- as.data.frame(as.table(cor_matrix))
+colnames(cor_data) <- c("Variable1", "Variable2", "Correlation")
 
-# 绘制柱形图
-barplot(frequency_table, main = "Frequency of Integer Values", xlab = "Integer Values", ylab = "Frequency")
+# Plot the correlation matrix heatmap
+library(ggplot2)
+ggplot(cor_data, aes(Variable1, Variable2, fill = Correlation)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "yellow", mid = "white", high = "green", midpoint = 0, limits = c(-1, 1)) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# point plot
+
+par(mfrow=c(3,4))
+##fixed.acidity
+ggplot(red.wine, aes(x = factor(quality), y = fixed.acidity,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "fixed.acidity", title = "point of fixed.acidity by quality")
+##volatile.acidity
+ggplot(red.wine, aes(x = factor(quality), y = volatile.acidity,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "volatile.acidity", title = "point of volatile.acidity by quality")
+##citric.acid
+ggplot(red.wine, aes(x = factor(quality), y = citric.acid,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "citric.acid", title = "point of citric.acid by quality")
+##residual.sugar
+ggplot(red.wine, aes(x = factor(quality), y = residual.sugar,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "residual.sugar", title = "point of residual.sugar by quality")
+##chlorides
+ggplot(red.wine, aes(x = factor(quality), y = chlorides,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "chlorides", title = "point of chlorides by quality")
+##free.sulfur.dioxide
+ggplot(red.wine, aes(x = factor(quality), y = free.sulfur.dioxide,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "free.sulfur.dioxide", title = "point of free.sulfur.dioxide by quality")
+##total.sulfur.dioxide
+ggplot(red.wine, aes(x = factor(quality), y = total.sulfur.dioxide,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "total.sulfur.dioxide", title = "point of total.sulfur.dioxide by quality")
+##density
+ggplot(red.wine, aes(x = factor(quality), y = density,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "density", title = "point of density by quality")
+##pH
+ggplot(red.wine, aes(x = factor(quality), y = pH,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "pH", title = "point of pH by quality")
+##sulphates
+ggplot(red.wine, aes(x = factor(quality), y = sulphates,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "sulphates", title = "point of sulphates by quality")
+##alcohol
+ggplot(red.wine, aes(x = factor(quality), y = alcohol,group = factor(quality))) +
+  geom_point() +
+  labs(x = "quality", y = "alcohol", title = "point of alcohol by quality") 
 ```
 
 
-
-
 ```{r}
-num_categories <- 5  # 设定分成的类别数量
-feature_categories <- cut(red.wine$fixed.acidity, breaks = num_categories)# 将特征列分成 num_categories 个区间
-data <- data.frame(Feature = red.wine$fixed.acidity, Label = red.wine$quality, Category = feature_categories)
-library(ggplot2)
-ggplot(data, aes(x = Category, y = Label, fill = Category)) +
+# box plot
+
+par(mfrow=c(3,4))
+##fixed.acidity
+ggplot(red.wine, aes(x = factor(quality), y = fixed.acidity,group = factor(quality))) +
   geom_boxplot() +
-  labs(title = "Boxplot of Labels by Feature Categories", x = "Feature Categories", y = "Labels") +
-  theme_minimal()
-
-```
-
-
-
-```{r}
-num_categories <- 4 # 设定分成的类别数量
-feature_categories <- cut(red.wine$pH, breaks = num_categories)# 将特征列分成 num_categories 个区间
-data <- data.frame(Feature = red.wine$pH, Label = red.wine$quality, Category = feature_categories)
-library(ggplot2)
-ggplot(data, aes(x = Category, y = Label, fill = Category)) +
+  labs(x = "quality", y = "fixed.acidity", title = "Boxplot of fixed.acidity by quality")
+##volatile.acidity
+ggplot(red.wine, aes(x = factor(quality), y = volatile.acidity,group = factor(quality))) +
   geom_boxplot() +
-  labs(title = "Boxplot of Labels by Feature Categories", x = "Feature Categories", y = "Labels") +
-  theme_minimal()
+  labs(x = "quality", y = "volatile.acidity", title = "Boxplot of volatile.acidity by quality")
+##citric.acid
+ggplot(red.wine, aes(x = factor(quality), y = citric.acid,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "citric.acid", title = "Boxplot of citric.acid by quality")
+##residual.sugar
+ggplot(red.wine, aes(x = factor(quality), y = residual.sugar,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "residual.sugar", title = "Boxplot of residual.sugar by quality")
+##chlorides
+ggplot(red.wine, aes(x = factor(quality), y = chlorides,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "chlorides", title = "Boxplot of chlorides by quality")
+##free.sulfur.dioxide
+ggplot(red.wine, aes(x = factor(quality), y = free.sulfur.dioxide,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "free.sulfur.dioxide", title = "Boxplot of free.sulfur.dioxide by quality")
+##total.sulfur.dioxide
+ggplot(red.wine, aes(x = factor(quality), y = total.sulfur.dioxide,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "total.sulfur.dioxide", title = "Boxplot of total.sulfur.dioxide by quality")
+##density
+ggplot(red.wine, aes(x = factor(quality), y = density,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "density", title = "Boxplot of density by quality")
+##pH
+ggplot(red.wine, aes(x = factor(quality), y = pH,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "pH", title = "Boxplot of pH by quality")
+##sulphates
+ggplot(red.wine, aes(x = factor(quality), y = sulphates,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "sulphates", title = "Boxplot of sulphates by quality")
+##alcohol
+ggplot(red.wine, aes(x = factor(quality), y = alcohol,group = factor(quality))) +
+  geom_boxplot() +
+  labs(x = "quality", y = "alcohol", title = "Boxplot of alcohol by quality") 
 ```
 
 
@@ -68,49 +155,6 @@ abline(h = 4/length(cooksd), col = "red", lty = 2)
 # 在图中标记异常值的观测编号
 text(top_outliers, cooksd[top_outliers], labels = top_outliers, pos = 4, col = "blue")  # 将异常值的观测编号标记在图中
 ```
-
-##创建二次变量
-```{r}
-# 创建空的数据框，用于存储交叉项
-red.wine_interact <- data.frame(matrix(NA, nrow = nrow(red.wine), ncol = 0))
-
-
-# 使用循环对所有特征进行两两交叉项的创建
-for (i in 1:(ncol(red.wine) - 1)) {
-  for (j in i:(ncol(red.wine)-1)) {
-    colname <- paste(names(red.wine)[i], names(red.wine)[j], sep = "_x_")  # 构建交叉项列名
-    red.wine_interact[colname] <- red.wine[, i] * red.wine[, j]  # 计算交叉项并添加到数据框中
-  }
-}
-
-red.wine_combined <- cbind(red.wine, red.wine_interact)
-
-##二次型变量的回归分析
-linear.model=lm(quality~.,data=red.wine_combined)
-summary(linear.model)
-plot(linear.model)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-##glm
-```{r}
-red.wine$quality=red.wine$quality-mean(red.wine$quality)
-glm.model=glm(red.wine$quality~volatile.acidity+chlorides+total.sulfur.dioxide+sulphates+alcohol,family = gaussian,data=red.wine)
-summary(glm.model)
-plot(glm.model)
-```
-
 
 
 
@@ -168,21 +212,143 @@ summary(stepwise_model_BIC)       # 使用 BIC 准则
 ```
 
 
-
-
+##创建二次变量
 ```{r}
-linear.model=lm(red.wine$quality~volatile.acidity  + 
-    chlorides  + total.sulfur.dioxide + 
-    pH + sulphates + alcohol, data=red.wine)
+# 创建空的数据框，用于存储交叉项
+red.wine_interact <- data.frame(matrix(NA, nrow = nrow(red.wine), ncol = 0))
+
+
+# 使用循环对所有特征进行两两交叉项的创建
+for (i in 1:(ncol(red.wine) - 1)) {
+  for (j in i:(ncol(red.wine)-1)) {
+    colname <- paste(names(red.wine)[i], names(red.wine)[j], sep = "_x_")  # 构建交叉项列名
+    red.wine_interact[colname] <- red.wine[, i] * red.wine[, j]  # 计算交叉项并添加到数据框中
+  }
+}
+
+red.wine_combined <- cbind(red.wine, red.wine_interact)
+
+##二次型变量的回归分析
+linear.model=lm(quality~.,data=red.wine_combined)
 summary(linear.model)
 plot(linear.model)
+
+##二次型Boxcox找lambda
+library(MASS)
+bc_results <- boxcox(red.wine_combined$quality ~ 1,plotit = TRUE)
+print(bc_results)  # 打印出lambda值 
+best_lambda <- bc_results$x[which.max(bc_results$y)]  # 找到最大对数似然估计值对应的 lambda 值
+print(best_lambda)
+
+##二次型boxcox变换后回归
+red.wine_combined$quality=(red.wine_combined$quality^best_lambda-1)/best_lambda
+linear.model=lm(red.wine_combined$quality~., data=red.wine_combined)
+summary(linear.model)
+par(mfrow=c(2,2))
+plot(linear.model)
+cooksd <- cooks.distance(linear.model)
+top_outliers <- order(cooksd, decreasing = TRUE)[1:8]
+
+# 绘制 Cook's 距离图
+plot(cooksd, pch = 19, cex = 1, main = "Cook's Distance Plot", ylab = "Cook's Distance", xlab = "Observation")
+abline(h = 4/length(cooksd), col = "red", lty = 2)
+
+# 在图中标记异常值的观测编号
+text(top_outliers, cooksd[top_outliers], labels = top_outliers, pos = 4, col = "blue")  # 将异常值的观测编号标记在图中
+
+
+
+
+##二次型变量AIC和BIC
+stepwise_model_AIC <- step(linear.model, direction = "both", trace = 0, criterion = "AIC")  
+summary(stepwise_model_AIC)       # 使用 AIC 准则
+stepwise_model_BIC <- step(linear.model, direction = "both", trace = 0, criterion = "BIC")  
+summary(stepwise_model_BIC)   
+
+
+
+ncvTest(linear.model)    ##检验异方差
+dwtest(linear.model)     ##检验自相关性
+vif(linear.model)        ##检验多重共线性
+```
+
+
+##主成分分析
+```{r}
+red.wine_combined_pca=red.wine_combined
+red.wine_combined_pca$quality=NULL
+pca_result <- prcomp(red.wine_combined_pca, scale = TRUE)  
+summary(pca_result)
+pc_df <- as.data.frame(pca_result$x[, 1:40])
+pca_combined <- cbind(pc_df, red.wine$quality)
+linear.model.pca=lm(pca_combined$`red.wine$quality`~.,data=pca_combined)
+summary(linear.model.pca)
+```
+
+
+
+##岭回归
+```{r}
+library(glmnet)
+# 创建岭回归模型
+ridge_model <- glmnet(as.matrix(red.wine_combined), red.wine$quality, alpha = 0, lambda = 1) # alpha = 0 表示岭回归
+
+# 如果需要交叉验证来选择合适的lambda值，可以使用cv.glmnet函数
+cv_model <- cv.glmnet(as.matrix(red.wine_combined), red.wine$quality, alpha = 0) # alpha = 0 表示岭回归
+
+# 找到最佳的lambda值
+best_lambda <- cv_model$lambda.min  # 选择交叉验证中最小误差对应的lambda值
+ridge_model <- glmnet(as.matrix(red.wine_combined), red.wine$quality, alpha = 0, lambda = best_lambda)
+summary(ridge_model)
 ```
 
 
 
 
+##glm
+```{r}
+set.seed(1)
+train.data.index=sample(nrow(red.wine),size=2/3*nrow(red.wine))
+train.data=red.wine[train.data.index,]
+test.data=red.wine[-train.data.index,]
+glm.model=glm(red.wine$quality~.,family = gaussian,data=red.wine)
+summary(glm.model)
+predictions <- predict(glm.model, newdata = test.data)
+rounded_predictions <- round(predictions)
+correct_predictions <- sum(test.data$quality == rounded_predictions)
+total_predictions <- length(test.data$quality)
+
+accuracy <- correct_predictions / total_predictions
+accuracy_percentage <- accuracy * 100
+
+accuracy_percentage
+```
 
 
+
+
+##SVM
+```{r}
+set.seed(1)
+library(e1071)
+train.data.index=sample(nrow(red.wine),size=2/3*nrow(red.wine))
+train.data=red.wine[train.data.index,]
+test.data=red.wine[-train.data.index,]
+svm_model <- svm(train.data$quality ~ ., data = train.data, kernel = "radial")
+tuned_svm <- tune(svm, quality ~ ., data=train.data, kernel = "radial", ranges = list(cost = c(0.1, 1, 10), gamma = c(0.1, 1, 10)))
+summary(tuned_svm)
+plot(tuned_svm)
+
+predictions <- predict(svm_model, newdata = test.data)
+rounded_predictions <- round(predictions)
+correct_predictions <- sum(test.data$quality == rounded_predictions)
+total_predictions <- length(test.data$quality)
+
+accuracy <- correct_predictions / total_predictions
+accuracy_percentage <- accuracy * 100
+
+accuracy_percentage
+```
 
 
 
