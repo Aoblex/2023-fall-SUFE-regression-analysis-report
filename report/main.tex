@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
+\usepackage{graphicx}
 
 % ------- 页眉页脚设置 ------- %
 \pagestyle{fancy}
@@ -69,21 +70,83 @@
         \end{table}
 
     \section{描述性统计}
-        对数据的初步描述如表 \ref{tab:description} 所示，包含平均值、最小值、最大值、中位数。
-        \begin{table}[htbp]
+        \subsection{数值特征}
+        对数据的初步描述如表 \ref{tab:description1-4}，表\ref{tab:description5-8}和表\ref{tab:description9-12} 所示，包含平均值、最小值、最大值、中位数。
+        \begin{table}[ht]
             \centering
-            \caption{数据描述}
+            \caption{数据描述1-4}
             \vspace{5pt}
-            \begin{tabular}{ccccc}
+            \begin{tabular}{lllll}
                 \hline
-                变量名 & 平均值 & 最小值 & 最大值 & 中位数 \\
+                fixed.acidity & volatile.acidity &  citric.acid & residual.sugar \\ 
                 \hline
-                fixed.acidity & 8.32 & 4.60 & 15.90 & 7.90 \\
+                Min.   : 4.60   & Min.   :0.1200   & Min.   :0.000   & Min.   : 0.900   \\ 
+                1st Qu.: 7.10   & 1st Qu.:0.3900   & 1st Qu.:0.090   & 1st Qu.: 1.900   \\ 
+                Median : 7.90   & Median :0.5200   & Median :0.260   & Median : 2.200   \\ 
+                Mean   : 8.32   & Mean   :0.5278   & Mean   :0.271   & Mean   : 2.539   \\ 
+                3rd Qu.: 9.20   & 3rd Qu.:0.6400   & 3rd Qu.:0.420   & 3rd Qu.: 2.600   \\ 
+                Max.   :15.90   & Max.   :1.5800   & Max.   :1.000   & Max.   :15.500   \\ 
+               \hline
+            \end{tabular}
+            \label{tab:description1-4}
+        \end{table}
+
+        \begin{table}[ht]
+            \centering
+            \caption{数据描述5-8}
+            \vspace{5pt}
+            \begin{tabular}{lllll}
+                \hline
+                chlorides & free.sulfur.dioxide & total.sulfur.dioxide &    density \\ 
+                \hline
+                Min.   :0.01200   & Min.   : 1.00   & Min.   :  6.00   & Min.   :0.9901   \\ 
+                1st Qu.:0.07000   & 1st Qu.: 7.00   & 1st Qu.: 22.00   & 1st Qu.:0.9956   \\ 
+                Median :0.07900   & Median :14.00   & Median : 38.00   & Median :0.9968   \\ 
+                Mean   :0.08747   & Mean   :15.87   & Mean   : 46.47   & Mean   :0.9967   \\ 
+                3rd Qu.:0.09000   & 3rd Qu.:21.00   & 3rd Qu.: 62.00   & 3rd Qu.:0.9978   \\ 
+                Max.   :0.61100   & Max.   :72.00   & Max.   :289.00   & Max.   :1.0037   \\ 
                 \hline
             \end{tabular}
-            \label{tab:description}
+            \label{tab:description5-8}
         \end{table}
+
+        \begin{table}[ht]
+            \centering
+            \caption{数据描述9-12}
+            \vspace{5pt}
+            \begin{tabular}{lllll}
+                \hline
+                pH &   sulphates &    alcohol &    quality \\ 
+                \hline
+                Min.   :2.740   & Min.   :0.3300   & Min.   : 8.40   & Min.   :3.000   \\ 
+                1st Qu.:3.210   & 1st Qu.:0.5500   & 1st Qu.: 9.50   & 1st Qu.:5.000   \\ 
+                Median :3.310   & Median :0.6200   & Median :10.20   & Median :6.000   \\ 
+                Mean   :3.311   & Mean   :0.6581   & Mean   :10.42   & Mean   :5.636   \\ 
+                3rd Qu.:3.400   & 3rd Qu.:0.7300   & 3rd Qu.:11.10   & 3rd Qu.:6.000   \\ 
+                Max.   :4.010   & Max.   :2.0000   & Max.   :14.90   & Max.   :8.000   \\ 
+                \hline
+            \end{tabular}
+            \label{tab:description9-12}
+            \end{table}
+
+        \subsection{因变量描述}
+            首先通过直方图观察酒品分布情况，可以发现，数据主要集中在$5, 6$。 
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.5\textwidth]{../red-wine/figures/quality-frequency}
+                \label{fig:quality}
+                \caption{酒品数据分布}
+            \end{figure}
+
+        \subsection{自变量描述}
+            我们通过自变量的分布图和自变量与酒品的箱线图对其进行描述。下面展示部分具有代表性的数据。
+
+            \subsubsection{}
+
     \section{数据建模}
+        我们首先使用线性模型全模型，通过红酒的化学成分特征，对酒品进行回归分析。
+
+        \subsection{全模型}
 
     \section{结论及建议}
 
