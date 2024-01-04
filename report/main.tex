@@ -1,9 +1,10 @@
-\documentclass{ctexart}
+\documentclass[fontset=ubuntu]{ctexart}
 
 
 % ------- 导入包 ------- %
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{tabularx}
 
 % ------- 页眉页脚设置 ------- %
 \pagestyle{fancy}
@@ -16,7 +17,7 @@
 % ------- 字体设置 ------- %
 
 % ------- 标题页 ------- % 
-\title{SEER数据分析报告}
+\title{红酒质量分析报告}
 \author{回归分析小组}
 \date{\today}
 
@@ -24,70 +25,70 @@
 % ------- 主文档 ------- %
 \begin{document}
 
+    % ------- 标题页 ------- %
     \maketitle
     \thispagestyle{empty}
     \newpage
 
+    % ------- 目录页 ------- %
     \tableofcontents
     \thispagestyle{empty}
     \newpage
+    \setcounter{page}{1} % 重置页码
 
-    \setcounter{page}{1}
+    % ------- 正文 ------- %
     \section{问题背景}
-        \subsection{肺癌}
-            肺癌通常被认为是一种严重的癌症类型，因为它通常在早期没有明显的症状，
-            导致在诊断时已经进展到晚期。
-            由于这个原因，肺癌的治疗可能面临更大的挑战，治疗成功率相对较低。
-        \subsection{对肺癌进行数据分析的重要意义}
-            通过对肺癌患者的统计数据进行分析，可以识别患病的风险因素、疾病发展的模式以及不同人群之间的差异。
-            这有助于预测患者的疾病风险，为预防和早期筛查提供信息。
-            统计数据分析可以揭示不同治疗方法的效果，有助于优化治疗方案。
-            了解患者对特定治疗的反应，可以个体化治疗计划，提高治疗的效果和患者的生存率。
+        随着酒类产品在市场上的广泛受欢迎，对于酒的质量和特征的深入了解变得至关重要。为了更好地了解酒的品质，我们进行了一项回归分析，重点关注了酒的酸度，二氧化硫（$SO_2$）含量等特征。这些特征在很大程度上影响了酒的口感、风味和保存能力。 
 
-    \section{数据来源}
-        我们通过 \texttt{SEER*Stat} 软件下载了 $1975-2020$ 年期间的肺癌数据 \cite{seer2023}。
-        \subsection{基本信息}
+    \section{数据说明}
+        我们通过 \href{https://archive.ics.uci.edu/dataset/186/wine+quality}{UC Irvine}仓库下载了红酒数据，数据集中的特征包含酒的各类化学成分指标以及酒的品质评价。其中，成分指标，如$pH$值、$SO_2$含量、残糖量等通过物理化学检测得出；酒的品质由专业品酒师做出评价。（每个样本由三个品酒师做出评价，每个人的评分为$0$（差）到$10$（好）的一个整数，最终评价取三人的中位数）。红酒共$1599$条数据，其中不含缺失值，共记录了$12$个特征，特征说明如 \ref{tab:features} 所示。
+
         \begin{table}[htbp]
             \centering
-            \begin{tabular}{c}
+            \caption{酒的特征说明}
+            \vspace{5pt}
+            \begin{tabular}{cccc}
                 \hline
-                变量名 \\
+                变量名 & 中文含义 & 变量类型 & 单位 \\
                 \hline
-                Patient ID \\
-                Age recode with single ages \\
-                Sex \\
-                Race recode(W,B,AI,API) \\
-                \hline
-            \end{tabular}
-            \caption{基本信息变量}
-            \label{tab:basic-information}
-        \end{table}
-        
-        \subsection{个人生活信息}
-        \begin{table}[hbtp]
-            \centering
-            \begin{tabular}{c}
-                \hline
-                变量名 \\
-                \hline
-                Rural Urban Continuum Code \\
-                Marital status at diagnosis \\
-                Median household income inflation adj to 2021 \\
+                fixed acidity & 固定酸度 & 连续型变量 & g/L \\
+                Volatile Acidity & 挥发性酸度 & 连续型变量 & g/L \\
+                Citric Acid & 柠檬酸 & 连续型变量 & g/L\\
+                Residual Sugar & 残糖 & 连续型变量 & g/L \\
+                Chlorides & 氯化物 & 连续型变量 & g/L\\
+                Free Sulfur Dioxide & 游离二氧化硫 & 连续型变量 & g/L \\
+                Total Sulfur Dioxide & 总二氧化硫 & 连续型变量 & g/L \\
+                Density & 密度 & 连续型变量 & g/mL \\
+                pH &  葡萄酒的pH值 & 连续型变量 & \\
+                Sulphates & 硫酸盐 & 连续型变量 & g/L \\
+                Alcohol & 醇度 & 连续型变量 & \% \\
+                Quality & 酒品 & 离散型变量 & \\ 
                 \hline
             \end{tabular}
-            \caption{个人生活变量}
-            \label{tab:personal-information}
+            \label{tab:features}
         \end{table}
 
-        \subsection{}
     \section{描述性统计}
-
+        对数据的初步描述如表 \ref{tab:description} 所示，包含平均值、最小值、最大值、中位数。
+        \begin{table}[htbp]
+            \centering
+            \caption{数据描述}
+            \vspace{5pt}
+            \begin{tabular}{ccccc}
+                \hline
+                变量名 & 平均值 & 最小值 & 最大值 & 中位数 \\
+                \hline
+                fixed.acidity & 8.32 & 4.60 & 15.90 & 7.90 \\
+                \hline
+            \end{tabular}
+            \label{tab:description}
+        \end{table}
     \section{数据建模}
 
     \section{结论及建议}
 
     \newpage
-    \bibliographystyle{plain}
-    \bibliography{ref} 
+    %\bibliographystyle{plain}
+    %\bibliography{ref} 
 
 \end{document}
